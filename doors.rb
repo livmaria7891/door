@@ -58,7 +58,7 @@ class Door
     else
       raise ArgumentError.new("This door is already unlocked")
     end
-  end  
+  end
 
   def closed?
     if closed == true
@@ -68,7 +68,20 @@ class Door
     end
   end
 
+  def locked?
+    if locked == true
+      return "This door is locked"
+    else
+      return "This door is unlocked"
+    end
+  end
 
-
+  def show_inscription
+    if inscription == ""
+      return "There is no inscription on this door"
+    else
+      return inscription
+    end
+  end
 
 end

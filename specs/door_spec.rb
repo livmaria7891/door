@@ -165,7 +165,7 @@ describe "Testing Doors" do
   end
 
   it "Checks whether or not a door is locked" do
-    skip
+    #skip
     locked_and_closed = Door.new("Room",true,true)
     expect(locked_and_closed.locked?.must_equal("This door is locked"))
 
@@ -181,12 +181,12 @@ describe "Testing Doors" do
   end
 
   it "Shows the inscription" do
-    skip
+    #skip
     unlocked_and_open = Door.new("An Inscription",false,false)
     expect(unlocked_and_open.show_inscription.must_equal("An Inscription"))
 
     locked_and_open = Door.new("",true,false)
-    expect(locked_and_open.read_inscription.must_equal("There is no inscription on this door"))
+    expect(locked_and_open.show_inscription.must_equal("There is no inscription on this door"))
   end
 
 end
