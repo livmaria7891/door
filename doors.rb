@@ -27,4 +27,8 @@ class Door
     end
   end
 
+  def open_door
+
+  end
+
 end
