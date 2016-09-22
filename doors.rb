@@ -58,6 +58,14 @@ class Door
     else
       raise ArgumentError.new("This door is already unlocked")
     end
+  end  
+
+  def closed?
+    if closed == true
+      return "This door is closed"
+    else
+      return "This door is open"
+    end
   end
 
 

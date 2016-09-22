@@ -149,7 +149,7 @@ describe "Testing Doors" do
   end
 
   it "Checks whether or not a door is closed" do
-    skip
+    #skip
     locked_and_closed = Door.new("Room",true,true)
     expect(locked_and_closed.closed?.must_equal("This door is closed"))
 
