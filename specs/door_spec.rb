@@ -11,33 +11,33 @@ describe "Testing Doors" do
   end
 
   it "Checks that a new door is created if NO arguments are passed" do
-    tst = Door.new()
+    tst=Door.new()
     expect(tst.class).must_equal(Door)
   end
 
   it "Checks that Argument Error is raised if anything other than a string is passed in the first parameter" do
-      skip
+      #skip
       assert_raises(ArgumentError) { Door.new(5,false,false) }
       assert_raises(ArgumentError) { Door.new(true,false,false) }
       assert_raises(ArgumentError) { Door.new(:symbol,false,false) }
   end
 
   it "Raises ArgumentError if something besides a boolean is passed as second argument" do
-    skip
-    assert_raises(ArgumentError) { Door.new("Kitchen","Dining Room",false) }
-    assert_raises(ArgumentError) { Door.new("Kitchen",8,false) }
-    assert_raises(ArgumentError) { Door.new("Kitchen",:symbol,false) }
+    #skip
+    assert_raises(ArgumentError) { Door.new("Kitchen","a") }
+    assert_raises(ArgumentError) { Door.new("Kitchen",13) }
+    assert_raises(ArgumentError) { Door.new("Kitchen",:symbol) }
   end
 
   it "Raises ArgumentError if something besides a boolean is passed as third argument" do
-    skip
+    # skip
     assert_raises(ArgumentError) { Door.new("Kitchen",false,"Bedroom") }
     assert_raises(ArgumentError) { Door.new("Kitchen",false,13) }
     assert_raises(ArgumentError) { Door.new("Kitchen",false,:symbol) }
   end
 
   it "Checks that if only one argument is given, the default values are set" do
-    skip
+    #skip
     tst = Door.new()
     expect(tst.locked).must_equal(true)
     expect(tst.closed).must_equal(true)
@@ -46,7 +46,7 @@ describe "Testing Doors" do
 
   it "Checks that inscription cannot be changed" do
     skip
-    tst = Door.new("Keep this Inscription")
+    tst=Door.new("Keep this Inscription")
     tst.inscription = "This Inscription Cannot Be Here"
     expect(tst.inscription.must_equal("Keep this Inscription")
   end
