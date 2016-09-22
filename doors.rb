@@ -32,8 +32,17 @@ class Door
     if locked == false && closed == true
       @closed=false
     else
-      raise ArgumentError
+      raise ArgumentError.new("A door can only be opened if it's closed and unlocked")
     end
   end
+
+  def close_door
+    if closed == false
+      @closed=true
+    else
+      raise ArgumentError.new("A door can only be closed if it's open")
+    end
+  end
+
 
 end
