@@ -1,7 +1,7 @@
 #doors.rb
 class Door
 
-  attr_accessor :locked, :closed
+  attr_accessor :closed, :locked
   attr_reader :inscription
 
   def initialize(inscription = "", locked=true,closed=true)
@@ -27,8 +27,13 @@ class Door
     end
   end
 
+  ###Why won't closed chaged without the @
   def open_door
-
+    if locked == false && closed == true
+      @closed=false
+    else
+      raise ArgumentError
+    end
   end
 
 end

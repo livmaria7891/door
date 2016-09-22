@@ -57,6 +57,7 @@ describe "Testing Doors" do
   end
 
   it "Checks that .write_inscription() will only take a string as a parameter" do
+    #skip
     tst=Door.new()
     assert_raises(ArgumentError) { tst.write_inscription(4) }
 
@@ -69,21 +70,23 @@ describe "Testing Doors" do
   end
 
   it "Checks that a door can only be opened if it is unlocked and closed" do
-    skip
+    #skip
     unlocked_and_closed = Door.new("Room",false,true)
-    expect(unlocked_and_closed.open_door.closed.must_equal(false))
+    unlocked_and_closed.open_door
+    expect(unlocked_and_closed.closed.must_equal(false))
 
     locked_and_closed = Door.new("Room",true,true)
-    expect(locked_and_closed.open_door.assert_raises(Exception))
+    assert_raises(ArgumentError) { locked_and_closed.open_door }
     expect(locked_and_closed.closed.must_equal(true))
 
     unlocked_and_open = Door.new("Room",false,false)
-    expect(unlocked_and_open.open_door.assert_raises(Exception))
-    expect(locked_and_open.closed.must_equal(false))
+    assert_raises(ArgumentError) { unlocked_and_open.open_door }
+    expect(unlocked_and_open.closed.must_equal(false))
 
     locked_and_open = Door.new("Room",true,false)
-    expect(locked_and_open.open_door.assert_raises(Exception))
-    expect(locked_and_open.closed.must_equal(true))
+    assert_raises(ArgumentError) { locked_and_open.open_door }
+    expect(locked_and_open.closed.must_equal(false))
+
   end
 
   it "Checks that a door can only be closed if it is not closed" do
