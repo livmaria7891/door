@@ -44,5 +44,15 @@ class Door
     end
   end
 
+  def lock
+    if locked == false
+      @locked=true
+    else
+      raise ArgumentError.new("This door is already locked")
+    end
+  end
+
+
+
 
 end

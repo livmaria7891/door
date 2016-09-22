@@ -102,28 +102,30 @@ describe "Testing Doors" do
     locked_and_closed = Door.new("Room",true,true)
     assert_raises(ArgumentError) { locked_and_closed.close_door }
     expect(locked_and_closed.closed.must_equal(true))
-    #
+
     locked_and_open = Door.new("Room",true,false)
     locked_and_open.close_door
     expect(locked_and_open.closed.must_equal(true))
-    # expect(locked_and_open.close_door.closed.must_equal(true))
+
   end
 
   it "Checks that a door can only be locked if it is unlocked" do
-    skip
+    #skip
     unlocked_and_open = Door.new("Room",false,false)
-    expect(unlocked_and_open.lock.locked.must_equal(true))
+    unlocked_and_open.lock
+    expect(unlocked_and_open.locked.must_equal(true))
 
     unlocked_and_closed = Door.new("Room",false,true)
-    expect(locked_and_open.lock.locked.must_equal(true))
+    unlocked_and_closed.lock
+    expect(unlocked_and_closed.locked.must_equal(true))
 
     locked_and_closed = Door.new("Room",true,true)
-    expect(locked_and_closed.lock.assert_raises(Exception))
+    assert_raises(ArgumentError) { locked_and_closed.lock }
     expect(locked_and_closed.locked.must_equal(true))
-
+    #
     locked_and_open = Door.new("Room",true,false)
-    expect(locked_and_open.lock.assert_raises(Exception))
-    expect(locked_and_open.lock.locked.must_equal(true))
+    assert_raises(ArgumentError) { locked_and_open.lock }
+    expect(locked_and_open.locked.must_equal(true))
   end
 
   it "Checks that a door can only be unlocked if it is locked" do
